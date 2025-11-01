@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Homepage — Gradient Background</title>
+  <style>
+    /* Full-page animated gradient (pure HTML file with embedded CSS) */
+    :root{
+      --c1: #ff6b6b;
+      --c2: #f8e71c;
+      --c3: #7bdff6;
+      --c4: #6a11cb;
+    }
+
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+
+    body {
+      /* linear multi-stop gradient + large background-size for smooth animation */
+      background: linear-gradient(135deg, var(--c1), var(--c2) 30%, var(--c3) 65%, var(--c4));
+      background-size: 400% 400%;
+      animation: gradientShift 12s ease infinite;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      color: white;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    @keyframes gradientShift {
+      0%   { background-position: 0% 50%; }
+      50%  { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Simple centered card so you can see how text looks on the gradient */
+    .card {
+      background: rgba(255,255,255,0.06); /* subtle translucent panel */
+      padding: 2rem 2.5rem;
+      border-radius: 14px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+      text-align: center;
+      backdrop-filter: blur(6px);
+    }
+
+    h1 { margin: 0 0 0.4rem 0; font-size: 1.6rem; }
+    p  { margin: 0; opacity: 0.95; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Welcome to my homepage</h1>
+    <p>Simple, colorful gradient background — single HTML file.</p>
+  </div>
+</body>
+</html>

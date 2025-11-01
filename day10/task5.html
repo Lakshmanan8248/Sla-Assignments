@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Position Example</title>
+  <style>
+    body {
+      height: 1000px; /* to allow scrolling for fixed box */
+      font-family: Arial, sans-serif;
+    }
+
+    /* Box 1 — Relative */
+    .relative-box {
+      position: relative;
+      top: 20px;    /* moves 20px down from normal position */
+      left: 30px;   /* moves 30px right from normal position */
+      width: 150px;
+      height: 100px;
+      background-color: lightcoral;
+      text-align: center;
+      line-height: 100px;
+      color: white;
+      font-weight: bold;
+    }
+
+    /* Box 2 — Absolute */
+    .absolute-box {
+      position: absolute;
+      top: 150px;   /* positioned from the top of the page */
+      left: 200px;  /* positioned from the left of the page */
+      width: 150px;
+      height: 100px;
+      background-color: lightseagreen;
+      text-align: center;
+      line-height: 100px;
+      color: white;
+      font-weight: bold;
+    }
+
+    /* Box 3 — Fixed */
+    .fixed-box {
+      position: fixed;
+      bottom: 20px;  /* stays 20px above bottom of screen */
+      right: 20px;   /* stays 20px from right side */
+      width: 150px;
+      height: 100px;
+      background-color: steelblue;
+      text-align: center;
+      line-height: 100px;
+      color: white;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="relative-box">Relative</div>
+  <div class="absolute-box">Absolute</div>
+  <div class="fixed-box">Fixed</div>
+
+</body>
+</html>

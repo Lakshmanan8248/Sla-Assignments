@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Fixed Navigation Bar</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    /* Navigation Bar */
+    .navbar {
+      position: fixed;       /* Fixes the navbar at top */
+      top: 0;                /* Aligns it to top edge */
+      left: 0;
+      width: 100%;           /* Full width */
+      background-color: #333;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+      z-index: 1000;         /* Keeps navbar above other content */
+    }
+
+    /* Logo text */
+    .navbar h1 {
+      margin: 0;
+      font-size: 20px;
+    }
+
+    /* Navigation links */
+    .navbar ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+
+    .navbar ul li {
+      margin-left: 20px;
+    }
+
+    .navbar ul li a {
+      text-decoration: none;
+      color: white;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .navbar ul li a:hover {
+      color: #ff6600;
+    }
+
+    /* Page content for scroll demo */
+    .content {
+      margin-top: 70px; /* space for navbar height */
+      padding: 20px;
+      height: 1500px;   /* to show scrolling */
+      background-color: #f4f4f4;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <h1>My Website</h1>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Services</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="content">
+    <h2>Scroll Down</h2>
+    <p>You’ll see the navigation bar stays fixed at the top while scrolling.</p>
+  </div>
+
+</body>
+</html>

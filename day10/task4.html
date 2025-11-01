@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Fixed Background Banner</title>
+  <style>
+    /* Style for the banner */
+    .banner {
+      background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e'); /* Example image */
+      background-size: cover;         /* Image covers the full area */
+      background-position: center;    /* Center the image */
+      background-attachment: fixed;   /* Keeps image fixed while scrolling */
+      height: 400px;                  /* Banner height */
+      display: flex;                  /* Centers text */
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-size: 2em;
+      font-family: 'Poppins', sans-serif;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+    }
+
+    /* Add some scrollable content to see the fixed effect */
+    .content {
+      padding: 50px;
+      text-align: center;
+      background-color: #f8f8f8;
+    }
+  </style>
+</head>
+<body>
+  <div class="banner">
+    Welcome to My Website
+  </div>
+
+  <div class="content">
+    <p>This is a sample content section below the banner.</p>
+    <p>Scroll the page to see the background image stay fixed!</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio.</p>
+  </div>
+</body>
+</html>

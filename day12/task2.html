@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .container {
+      border: 2px solid #333;
+      padding: 10px;
+      width: 400px;
+      margin: 20px auto;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Float the image to the left */
+    .container img {
+      float: left;
+      width: 120px;
+      height: 120px;
+      margin-right: 15px;
+      border-radius: 10px;
+    }
+
+    /* Clearfix — fixes container collapse issue */
+    .container::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+    p {
+      text-align: justify;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <img src="https://via.placeholder.com/120" alt="Example Image">
+    <p>
+      This text flows neatly beside the image. The image is floated to the left, 
+      and the clearfix ensures that the container wraps around both the text and the image properly.
+    </p>
+  </div>
+
+</body>
+</html>

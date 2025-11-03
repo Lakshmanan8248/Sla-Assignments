@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Product List</title>
+</head>
+<body>
+  <h2>Product List</h2>
+  <ul id="productList"></ul>
+
+  <script>
+    // Create an array of products
+    const products = ["Laptop", "Mobile", "Headphones", "Keyboard", "Mouse"];
+
+    // Get the <ul> element
+    const list = document.getElementById("productList");
+
+    // Display all product names dynamically
+    products.forEach(function(product) {
+      const li = document.createElement("li");
+      li.textContent = product;
+      list.appendChild(li);
+    });
+  </script>
+</body>
+</html>

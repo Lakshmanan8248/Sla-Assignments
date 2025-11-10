@@ -1,7 +1,7 @@
 let daynumber=7;
 switch(daynumber){
  case 1:
-    console.log("monday");
+      console.log("monday");
     break;
     case 2:
         console.log("tuesday");

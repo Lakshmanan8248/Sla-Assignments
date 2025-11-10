@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Form Validation with try...catch</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+    }
+    input {
+      display: block;
+      margin: 10px 0;
+      padding: 8px;
+      width: 250px;
+    }
+    button {
+      padding: 8px 16px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Form Validation Example</h2>
+
+  <form id="userForm">
+    <input type="text" id="name" placeholder="Enter your name" />
+    <input type="email" id="email" placeholder="Enter your email" />
+    <button type="submit">Submit</button>
+  </form>
+
+  <script>
+    document.getElementById("userForm").addEventListener("submit", function(event) {
+      event.preventDefault(); // prevent form submission
+
+      try {
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+
+        if (!name || !email) {
+          throw new Error("All fields are required!");
+        }
+
+        alert("Form submitted successfully!");
+      } catch (error) {
+        alert("Error: " + error.message);
+      }
+    });
+  </script>
+</body>
+</html>

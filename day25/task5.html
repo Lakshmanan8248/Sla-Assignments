@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Full Error Handling Example</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+    }
+    input {
+      padding: 8px;
+      width: 250px;
+      margin-bottom: 10px;
+    }
+    button {
+      padding: 8px 16px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Age Validation Example</h2>
+  <input type="number" id="ageInput" placeholder="Enter your age" />
+  <button onclick="validateAge()">Check Age</button>
+
+  <script>
+    class UnderAgeError extends Error {
+      constructor(message) {
+        super(message);
+        this.name = "UnderAgeError";
+      }
+    }
+
+    function validateAge() {
+      const age = document.getElementById("ageInput").value.trim();
+
+      try {
+        if (age === "") {
+          throw new Error("Age field cannot be empty!");
+        }
+
+        const numAge = Number(age);
+        if (isNaN(numAge)) {
+          throw new Error("Please enter a valid number!");
+        }
+
+        if (numAge < 18) {
+          throw new UnderAgeError("Access denied: You must be 18 or older.");
+        }
+
+        alert("Access granted!");
+      } 
+      catch (error) {
+        console.error("Error Name:", error.name);
+        console.error("Error Message:", error.message);
+        alert(`Error: ${error.message}`);
+      } 
+      finally {
+        console.log("Validation process completed."); // Always runs
+      }
+    }
+  </script>
+</body>
+</html>

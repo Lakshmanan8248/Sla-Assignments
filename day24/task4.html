@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Change Color with try...catch</title>
+</head>
+<body>
+  <h2>Change Color Example</h2>
+
+  <button onclick="changeColor()">Change Color</button>
+
+  <p id="text">Click the button to change my color!</p>
+
+  <p id="message"></p>
+
+  <script>
+    function changeColor() {
+      const message = document.getElementById("message");
+
+      try {
+        // Try to find the element
+        const element = document.getElementById("text");
+
+        // If element not found, throw an error
+        if (!element) throw "Element not found!";
+
+        // Change the color randomly
+        const colors = ["red", "green", "blue", "purple", "orange"];
+        const randomColor = colors[Math.floor(Math.random() * colors.length)];
+        element.style.color = randomColor;
+
+        message.style.color = "green";
+        message.innerHTML = "✅ Color changed successfully!";
+      } 
+      catch (error) {
+        message.style.color = "red";
+        message.innerHTML = "Error: " + error;
+      } 
+      finally {
+        console.log("Color change attempt complete.");
+      }
+    }
+  </script>
+</body>
+</html>

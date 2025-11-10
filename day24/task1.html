@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Form Validation using try...catch</title>
+</head>
+<body>
+  <h2>Simple Form Validation</h2>
+
+  <form id="userForm">
+    <label>Username:</label>
+    <input type="text" id="username"><br><br>
+
+    <label>Email:</label>
+    <input type="text" id="email"><br><br>
+
+    <button type="button" onclick="validateForm()">Submit</button>
+  </form>
+
+  <p id="result"></p>
+
+  <script>
+    function validateForm() {
+      const username = document.getElementById("username").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const result = document.getElementById("result");
+
+      try {
+        // Validation conditions
+        if (username === "") throw "Username cannot be empty!";
+        if (email === "") throw "Email cannot be empty!";
+        if (!email.includes("@") || !email.includes(".")) throw "Invalid email format!";
+
+        result.style.color = "green";
+        result.innerHTML = "✅ Form submitted successfully!";
+      } 
+      catch (error) {
+        result.style.color = "red";
+        result.innerHTML = "Error: " + error;
+      } 
+      finally {
+        console.log("Validation process completed.");
+      }
+    }
+  </script>
+</body>
+</html>

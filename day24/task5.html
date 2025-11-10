@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Secure Login Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+    }
+    form {
+      border: 2px solid #ccc;
+      padding: 20px;
+      width: 300px;
+      border-radius: 10px;
+    }
+    input {
+      margin-bottom: 10px;
+      width: 100%;
+      padding: 8px;
+    }
+    button {
+      width: 100%;
+      padding: 8px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    #message {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Secure Login Form</h2>
+
+  <form id="loginForm">
+    <label>Username:</label><br>
+    <input type="text" id="username"><br>
+    <label>Password:</label><br>
+    <input type="password" id="password"><br>
+    <button type="submit">Login</button>
+  </form>
+
+  <p id="message"></p>
+
+  <script>
+    // Add event listener for form submission
+    document.getElementById("loginForm").addEventListener("submit", function(event) {
+      event.preventDefault(); // Prevent form from reloading the page
+
+      const username = document.getElementById("username").value.trim();
+      const password = document.getElementById("password").value.trim();
+      const message = document.getElementById("message");
+
+      try {
+        // Validate inputs
+        if (username === "") throw "Username cannot be empty!";
+        if (password === "") throw "Password cannot be empty!";
+        if (password.length < 6) throw "Password must be at least 6 characters!";
+        
+        // Simulate successful login
+        if (username === "admin" && password === "123456") {
+          message.style.color = "green";
+          message.innerHTML = "✅ Login successful!";
+        } else {
+          throw "Invalid username or password!";
+        }
+      } 
+      catch (error) {
+        message.style.color = "red";
+        message.innerHTML = "Error: " + error;
+      } 
+      finally {
+        console.log("Login attempt complete.");
+      }
+    });
+  </script>
+
+</body>
+</html>

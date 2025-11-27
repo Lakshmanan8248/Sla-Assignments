@@ -1,0 +1,5 @@
+ALTER TABLE lessons
+ADD CONSTRAINT fk_lessons_course
+FOREIGN KEY (course_id) REFERENCES courses(course_id)
+ON DELETE CASCADE
+ON UPDATE CASCADE;

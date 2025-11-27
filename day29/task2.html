@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fade Photo Gallery</title>
+  <style>
+    body{
+      margin:0;display:flex;align-items:center;justify-content:center;min-height:100vh;background:#0f1724;font-family:Arial;color:#fff;
+    }
+    .gallery{
+      width:90%;max-width:520px;text-align:center;
+    }
+    .viewer{
+      position:relative;width:100%;height:320px;border-radius:12px;overflow:hidden;background:#000;
+    }
+    .viewer img{
+      position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .6s ease;
+    }
+    .viewer img.active{opacity:1;}
+
+    .controls{
+      margin-top:16px;display:flex;justify-content:center;gap:12px;
+    }
+    button{
+      padding:10px 18px;border:0;background:#06b6d4;color:#002833;font-weight:600;border-radius:8px;cursor:pointer;font-size:1rem;
+    }
+    button:hover{background:#0894ab;}
+  </style>
+</head>
+<body>
+  <div class="gallery">
+    <div class="viewer" id="viewer">
+      <img src="https://picsum.photos/id/1015/600/400" class="active">
+      <img src="https://picsum.photos/id/1025/600/400">
+      <img src="https://picsum.photos/id/1035/600/400">
+    </div>
+
+    <div class="controls">
+      <button id="prevBtn">Previous</button>
+      <button id="nextBtn">Next</button>
+    </div>
+  </div>
+
+<script>
+  const images = document.querySelectorAll('#viewer img');
+  let current = 0;
+
+  function showImage(index){
+    images.forEach(img => img.classList.remove('active'));
+    images[index].classList.add('active');
+  }
+
+  document.getElementById('nextBtn').onclick = () => {
+    current = (current + 1) % images.length;
+    showImage(current);
+  };
+
+  document.getElementById('prevBtn').onclick = () => {
+    current = (current - 1 + images.length) % images.length;
+    showImage(current);
+  };
+</script>
+</body>
+</html>

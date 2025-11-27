@@ -1,0 +1,21 @@
+<script>
+$(document).ready(function () {
+
+  function fadeInOnScroll() {
+    $(".fade-section").each(function () {
+      let sectionTop = $(this).offset().top;
+      let scrollTop = $(window).scrollTop();
+      let windowHeight = $(window).height();
+
+      // Trigger fade-in when visible
+      if (scrollTop + windowHeight - 100 > sectionTop) {
+        $(this).addClass("visible");
+      }
+    });
+  }
+
+  fadeInOnScroll();   // Initial check
+  $(window).on("scroll", fadeInOnScroll);
+
+});
+</script>

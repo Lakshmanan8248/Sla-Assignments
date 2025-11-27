@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Slide-Down Notification Box</title>
+
+  <style>
+    body{
+      margin:0;
+      font-family:Arial, sans-serif;
+      background:#0f1724;
+      height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:#fff;
+    }
+
+    .notify-btn{
+      padding:12px 20px;
+      font-size:1rem;
+      border:0;
+      border-radius:8px;
+      background:#06b6d4;
+      color:#002833;
+      cursor:pointer;
+      font-weight:600;
+    }
+    .notify-btn:hover{background:#0894ab;}
+
+    .notification{
+      position:fixed;
+      top:-120px; /* start hidden above */
+      left:50%;
+      transform:translateX(-50%);
+      width:90%;
+      max-width:420px;
+      background:#1e293b;
+      padding:16px 20px;
+      border-radius:10px;
+      box-shadow:0 6px 20px rgba(0,0,0,0.4);
+      transition:top 0.45s cubic-bezier(.25,.8,.25,1);
+    }
+
+    .notification.show{
+      top:20px;
+    }
+
+    .close-btn{
+      background:none;
+      border:0;
+      color:#9fb4c8;
+      font-size:1.2rem;
+      cursor:pointer;
+      position:absolute;
+      top:10px;
+      right:12px;
+    }
+  </style>
+</head>
+<body>
+
+  <button class="notify-btn" id="showBtn">Show Notification</button>
+
+  <div class="notification" id="notifyBox">
+    <button class="close-btn" id="closeBtn">×</button>
+    <h3 style="margin:0 0 6px">Notification</h3>
+    <p style="margin:0;color:#9fb4c8;">This notification slides down smoothly when the button is pressed.</p>
+  </div>
+
+<script>
+  const showBtn = document.getElementById('showBtn');
+  const notify = document.getElementById('notifyBox');
+  const closeBtn = document.getElementById('closeBtn');
+
+  showBtn.addEventListener('click', () => {
+    notify.classList.add('show');
+  });
+
+  closeBtn.addEventListener('click', () => {
+    notify.classList.remove('show');
+  });
+
+  // Optional: auto-hide after 3 seconds
+  // showBtn.addEventListener('click', () => {
+  //   notify.classList.add('show');
+  //   setTimeout(() => notify.classList.remove('show'), 3000);
+  // });
+</script>
+
+</body>
+</html>

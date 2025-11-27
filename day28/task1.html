@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Location</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #eef2f3;
+      padding: 20px;
+    }
+
+    .container {
+      background: #fff;
+      padding: 20px;
+      max-width: 400px;
+      border-radius: 10px;
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    }
+
+    button {
+      padding: 10px 15px;
+      font-size: 16px;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #0056b3;
+    }
+
+    p {
+      font-size: 18px;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Show User’s Current Location</h2>
+
+  <div class="container">
+    <button onclick="getLocation()">Get Current Location</button>
+    <p id="result"></p>
+  </div>
+
+  <script>
+    function getLocation() {
+      const result = document.getElementById("result");
+
+      if (!navigator.geolocation) {
+        result.innerHTML = "Geolocation is not supported by your browser.";
+        return;
+      }
+
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          result.innerHTML = `
+            <b>Latitude:</b> ${position.coords.latitude}<br>
+            <b>Longitude:</b> ${position.coords.longitude}
+          `;
+        },
+        () => {
+          result.innerHTML = "Unable to get your location (permission denied or error).";
+        }
+      );
+    }
+  </script>
+
+</body>
+</html>

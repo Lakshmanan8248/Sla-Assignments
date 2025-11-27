@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Location</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #eef2f3;
+      padding: 20px;
+    }
+
+    .container {
+      background: #fff;
+      padding: 20px;
+      max-width: 400px;
+      border-radius: 10px;
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    }
+
+    button {
+      padding: 10px 15px;
+      font-size: 16px;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-right: 10px;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background: #0056b3;
+    }
+
+    p {
+      font-size: 18px;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Show & Save User Location</h2>
+
+  <div class="container">
+    <button onclick="getLocation()">Get Current Location</button>
+    <button onclick="saveLocation()">Save Location</button>
+
+    <p id="result"></p>
+    <p id="saved"></p>
+  </div>
+
+  <script>
+    let currentLat = null;
+    let currentLon = null;
+
+    function getLocation() {
+      const result = document.getElementById("result");
+
+      if (!navigator.geolocation) {
+        result.innerHTML = "Geolocation is not supported by your browser.";
+        return;
+      }
+
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          currentLat = position.coords.latitude;
+          currentLon = position.coords.longitude;
+
+          result.innerHTML = `
+            <b>Latitude:</b> ${currentLat}<br>
+            <b>Longitude:</b> ${currentLon}
+          `;
+        },
+        () => {
+          result.innerHTML = "Unable to get your location.";
+        }
+      );
+    }
+
+    function saveLocation() {
+      const saved = document.getElementById("saved");
+
+      if (currentLat === null || currentLon === null) {
+        saved.innerHTML = "Get your location first!";
+        return;
+      }
+
+      const locationData = {
+        latitude: currentLat,
+        longitude: currentLon,
+        savedAt: new Date().toLocaleString()
+      };
+
+      localStorage.setItem("userLocation", JSON.stringify(locationData));
+
+      saved.innerHTML = "Location saved successfully!";
+    }
+
+    // (Optional) Show previously saved location on page load
+    window.onload = () => {
+      const savedData = localStorage.getItem("userLocation");
+      if (savedData) {
+        const loc = JSON.parse(savedData);
+        document.getElementById("saved").innerHTML = `
+          <b>Saved Location:</b><br>
+          Latitude: ${loc.latitude}<br>
+          Longitude: ${loc.longitude}<br>
+          Saved At: ${loc.savedAt}
+        `;
+      }
+    };
+  </script>
+
+</body>
+</html>

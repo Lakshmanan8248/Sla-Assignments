@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Debug This Code - Mini Quiz</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: #f4f4f4;
+    }
+
+    .question {
+      background: #fff;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-left: 6px solid #ff5722;
+      border-radius: 8px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    }
+
+    pre {
+      background: #222;
+      color: #0f0;
+      padding: 15px;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+
+    button {
+      padding: 8px 15px;
+      font-size: 14px;
+      margin-top: 10px;
+      background: #007bff;
+      border: none;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #0056b3;
+    }
+
+    .answer {
+      margin-top: 10px;
+      padding: 10px;
+      background: #e8f5e9;
+      border-left: 4px solid #388e3c;
+      display: none;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h2>🔧 Debug This Code — Mini Quiz</h2>
+  <p>Find the bug in each code snippet and try to fix it before revealing the answer.</p>
+
+  <!-- Question 1 -->
+  <div class="question">
+    <h3>1️⃣ Bug in JavaScript Variable</h3>
+
+    <pre>
+// Find the bug in this code:
+
+let x = 10;
+let y = 20;
+
+console.log("Sum is: " + x + y);
+    </pre>
+
+    <button onclick="showAnswer(1)">Show Answer</button>
+    <div id="answer1" class="answer">
+      ❗ Bug: Strings concatenate instead of adding numbers.<br><br>
+      ✅ Fix:
+      <pre>
+console.log("Sum is: " + (x + y));
+      </pre>
+    </div>
+  </div>
+
+  <!-- Question 2 -->
+  <div class="question">
+    <h3>2️⃣ Bug in a Function</h3>
+
+    <pre>
+// This function should return the square of a number.
+// What is wrong?
+
+function square(n) {
+  return n * n;
+}
+
+console.log(square); // Wrong usage
+    </pre>
+
+    <button onclick="showAnswer(2)">Show Answer</button>
+    <div id="answer2" class="answer">
+      ❗ Bug: The function is printed instead of being executed.<br><br>
+      ✅ Fix:
+      <pre>
+console.log(square(5));
+      </pre>
+    </div>
+  </div>
+
+  <!-- Question 3 -->
+  <div class="question">
+    <h3>3️⃣ Bug in Array Code</h3>
+
+    <pre>
+// What is wrong here?
+
+let numbers = [1, 2, 3];
+numbers.push(4, 5);
+console.log(numbers.length); // Expecting 4?
+    </pre>
+
+    <button onclick="showAnswer(3)">Show Answer</button>
+    <div id="answer3" class="answer">
+      ❗ Bug: `push(4, 5)` adds TWO numbers, so length becomes **5**, not 4.<br><br>
+      ✅ Fix (if you want only one value added):
+      <pre>
+numbers.push(4);
+      </pre>
+    </div>
+  </div>
+
+  <!-- Show Answer Script -->
+  <script>
+    function showAnswer(id) {
+      const box = document.getElementById("answer" + id);
+      box.style.display = box.style.display === "block" ? "none" : "block";
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,22 @@
+import React, { useState, useEffect } from "react";
+
+function CounterWithLog() {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    console.log("Count changed:", count);
+  }, [count]); // 👈 runs only when count changes
+
+  return (
+    <div>
+      <h2>Counter</h2>
+      <p>Count: {count}</p>
+
+      <button onClick={() => setCount(count + 1)}>
+        Increment
+      </button>
+    </div>
+  );
+}
+
+export default CounterWithLog;

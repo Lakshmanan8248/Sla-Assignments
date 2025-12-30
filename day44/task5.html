@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Flexbox Layout Switch</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Container */
+    .container {
+      display: flex;
+      flex-direction: column;   /* Mobile-first: vertical */
+      min-height: 100vh;
+    }
+
+    .box {
+      padding: 20px;
+      text-align: center;
+      color: white;
+    }
+
+    .box1 { background: #1976d2; }
+    .box2 { background: #388e3c; }
+    .box3 { background: #f57c00; }
+
+    /* Tablet & above */
+    @media (min-width: 600px) {
+      .container {
+        flex-direction: row;   /* Horizontal layout */
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="box box1">Box 1</div>
+    <div class="box box2">Box 2</div>
+    <div class="box box3">Box 3</div>
+  </div>
+
+</body>
+</html>

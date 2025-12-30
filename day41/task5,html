@@ -1,0 +1,21 @@
+<div class="header">
+  <h1>My Company</h1>
+</div>
+
+<div class="menu">
+  <a href="#">Home</a>
+  <a href="#">Services</a>
+</div>
+
+<div class="content">
+  <h2>Our Services</h2>
+  <p>We provide web development services.</p>
+</div>
+
+<div class="sidebar">
+  <p>Contact: info@company.com</p>
+</div>
+
+<div class="footer">
+  <p>© 2025 My Company</p>
+</div>

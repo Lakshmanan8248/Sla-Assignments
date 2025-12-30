@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Responsive Background</title>
+    <style>
+        /* Default (Mobile First) */
+        body {
+            margin: 0;
+            height: 100vh;
+            background-color: lightblue;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: Arial, sans-serif;
+        }
+
+        /* At 600px and above */
+        @media (min-width: 600px) {
+            body {
+                background-color: lightgreen;
+            }
+        }
+
+        /* At 900px and above */
+        @media (min-width: 900px) {
+            body {
+                background-color: lightcoral;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Resize the browser window</h1>
+
+</body>
+</html>
